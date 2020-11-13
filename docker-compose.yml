@@ -7,8 +7,8 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
-    #volumes:
-    #  - "/rstudio/:/home/rstudio/Documents"
+    volumes:
+      - "./rstudio:/home/rstudio/Documents"
     ports:
       - "8787:8787"
   shiny:
@@ -18,8 +18,8 @@ services:
       restart_policy:
         condition: on-failure
     volumes:
-      - "/srv/shinyapps/:/srv/shiny-server/"
-      - "/srv/shinylog/:/var/log/shiny-server/"
+      - "./srv/shinyapps:/srv/shiny-server"
+      - "./srv/shinylog:/var/log/shiny-server"
     ports:
       - "3838:3838"
   
