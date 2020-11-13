@@ -9,6 +9,9 @@ services:
         condition: on-failure
     volumes:
       - "./rstudio:/home/rstudio/Documents"
+      - "/etc/group:/etc/group"
+      - "/etc/passwd:/etc/passwd"
+      - "/etc/shadow:/etc/shadow"
     ports:
       - "8787:8787"
   shiny:
