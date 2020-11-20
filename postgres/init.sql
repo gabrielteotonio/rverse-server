@@ -9,6 +9,6 @@ CREATE TABLE public.nz_migration(
 );
 
 
-COPY public.nz_migration 
+COPY public.nz_migration(year_month, month_of_release, passenger_type, direction, citizenship, visa, country_of_residence) 
 FROM '/var/lib/postgresql/data/pgdata/international-migration-nz.csv' 
 DELIMITER ',' CSV HEADER;
