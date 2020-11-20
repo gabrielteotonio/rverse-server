@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  db:
+    image: gabrielteotonio/postgres:0.1
+    deploy:
+      replicas: 1
+    restart_policy:
+      condition: on-failure
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata/
+  shiny:
+    image: rocker/shiny
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./srv/shinyapps:/srv/shiny-server
+      - ./srv/shinylog:/var/log/shiny-server
+    ports:
+      - 3838:3838
+    networks:
+      - backend
+
+networks:
+  backend:
