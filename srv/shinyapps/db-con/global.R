@@ -5,11 +5,13 @@ if(length(new.packages)) install.packages(new.packages)
 
 library(DBI)
 library(RPostgres)
+library(dplyr)
 library(dbplyr)
 
 con <- dbConnect(RPostgres::Postgres(),
                  dbname = "test",
                  user    = "admin",
                  password    = "admin",
-                 host = "127.0.0.1",
+                 host = "db",
+                 options="-c search_path=public",
                  port = 5432)

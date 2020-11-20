@@ -16,7 +16,7 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata/
   shiny:
-    image: rocker/shiny
+    image: gabrielteotonio/shiny-db:0.1
     deploy:
       replicas: 1
       restart_policy:

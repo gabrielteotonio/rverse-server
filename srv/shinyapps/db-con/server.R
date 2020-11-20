@@ -4,14 +4,14 @@ function(input, output) {
   # Fill in the spot we created for a plot
   output$citizPlot <- renderPlot({
     
-    # Render a barplot
-    barplot(barplot(tbl(con, "public.nz_migration") %>% 
-                      filter(country_of_residence == input$country_origin) %>% 
+    # Render a plot
+    plot(tbl(con, "nz_migration") %>% 
+                      filter(country_of_residence == !!input$country_origin) %>% 
                       group_by(visa) %>% 
                       count() %>% 
                       ungroup() %>% 
                       select(n) %>% 
-                      pull()), 
+                      pull(), 
             main=input$country_origin)
   })
 }

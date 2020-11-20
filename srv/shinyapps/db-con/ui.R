@@ -12,7 +12,7 @@ fluidPage(
     # Define the sidebar with one input
     sidebarPanel(
       selectInput("country_origin", "Country of residence:", 
-                  tbl(con, "public.nz_migration") %>% select(country_of_residence) %>% distinct() %>% pull()),
+                  tbl(con, "nz_migration") %>% select(country_of_residence) %>% distinct() %>% pull()),
       hr(),
       helpText("Data from New Zealand Gov. (2020).")
     ),
