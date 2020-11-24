@@ -6,10 +6,10 @@ services:
   # Use the latest Traefik image
     image: traefik:v2.2
     ports:
-     # Listen on port 80, default for HTTP, necessary to redirect to HTTPS
+      # Listen on port 80, default for HTTP, necessary to redirect to HTTPS
       - 80:80
-    # Listen on port 443, default for HTTPS
-    - 443:443
+      # Listen on port 443, default for HTTPS
+      - 443:443
     deploy:
       #placement:
       #constraints:
@@ -92,7 +92,7 @@ volumes:
   traefik-public-certificates:
   
 networks:
-# Use the previously created public network "traefik-public", shared with other
-# services that need to be publicly available via this Traefik
-traefik-public: 
+  # Use the previously created public network "traefik-public", shared with other
+  # services that need to be publicly available via this Traefik
+  traefik-public: 
   
