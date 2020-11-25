@@ -27,6 +27,7 @@ services:
         - traefik.constraint-label=traefik-public 
         - traefik.http.routers.shiny.rule=Host(`app.gabrielteotonio.com`) 
         - traefik.http.routers.shiny.entrypoints=http
+        - traefik.http.routers.shiny.middlewares=https-redirect
         - traefik.http.middlewares.shiny.redirectscheme.scheme=https 
         - traefik.http.middlewares.shiny.redirectscheme.permanent=true 
         - traefik.http.routers.shiny-secured.rule=Host(`app.gabrielteotonio.com`) 
