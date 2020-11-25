@@ -1,10 +1,11 @@
 # Global variables can go here
 n <- 200
-
+library(auth0)
 
 # Define the UI
 ui <- bootstrapPage(
   numericInput('n', 'Number of obs', n),
+  logoutButton(),
   plotOutput('plot')
 )
 
@@ -17,4 +18,4 @@ server <- function(input, output) {
 }
 
 # Return a Shiny app object
-shinyApp(ui = ui, server = server)
+shinyAppAuth0(ui = ui, server = server)
