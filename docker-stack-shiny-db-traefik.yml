@@ -36,6 +36,7 @@ services:
     volumes:
       - ./srv/shinyapps:/srv/shiny-server
       - ./srv/shinylog:/var/log/shiny-server
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3838:3838
     networks:
