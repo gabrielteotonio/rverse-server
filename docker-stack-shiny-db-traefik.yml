@@ -25,14 +25,14 @@ services:
         - traefik.enable=true 
         - traefik.docker.network=traefik-public 
         - traefik.constraint-label=traefik-public 
-        - traefik.http.routers.euler.rule=Host(`app.gabrielteotonio.com`) 
-        - traefik.http.routers.euler.entrypoints=http
-        - traefik.http.middlewares.euler.redirectscheme.scheme=https 
-        - traefik.http.middlewares.euler.redirectscheme.permanent=true 
-        - traefik.http.routers.euler-secured.rule=Host(`app.gabrielteotonio.com`) 
-        - traefik.http.routers.euler-secured.entrypoints=https
-        - traefik.http.routers.euler-secured.tls.certresolver=le 
-        - traefik.http.services.euler-secured.loadbalancer.server.port=3838 
+        - traefik.http.routers.shiny.rule=Host(`app.gabrielteotonio.com`) 
+        - traefik.http.routers.shiny.entrypoints=http
+        - traefik.http.middlewares.shiny.redirectscheme.scheme=https 
+        - traefik.http.middlewares.shiny.redirectscheme.permanent=true 
+        - traefik.http.routers.shiny-secured.rule=Host(`app.gabrielteotonio.com`) 
+        - traefik.http.routers.shiny-secured.entrypoints=https
+        - traefik.http.routers.shiny-secured.tls.certresolver=le 
+        - traefik.http.services.shiny-secured.loadbalancer.server.port=3838 
     volumes:
       - ./srv/shinyapps:/srv/shiny-server
       - ./srv/shinylog:/var/log/shiny-server
@@ -54,6 +54,7 @@ services:
       labels:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
         - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
         - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
         - traefik.http.routers.traefik-public-http.rule=Host(`traefik.sys.app.gabrielteotonio.com`)
@@ -89,3 +90,4 @@ volumes:
 networks:
   backend:
   traefik-public:
+    external: true
