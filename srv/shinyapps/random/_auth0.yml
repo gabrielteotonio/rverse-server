@@ -3,5 +3,5 @@ remote_url: 'https://app.gabrielteotonio.com'
 auth0_config:
   api_url: 'https://dev-gmrgiwnr.us.auth0.com'
   credentials:
-    key: goMNHr3P2SnAop7jOCVWM8hmZDwpfLyz
-    secret: N1LISIY6jhJsBgQskBh1kDSFIJvxSoC0Xy5c_DT47bn_GmAz2PFc_reADuB0Ipa2
+    key: <>
+    secret: <>
